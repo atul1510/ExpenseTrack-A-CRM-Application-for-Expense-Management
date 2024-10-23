@@ -1,0 +1,7 @@
+trigger BeforeInsertExpenseDefaultCatagoryTrigger on Expense__c (before insert) {
+    for (Expense__c exp : Trigger.new) {
+        if (exp.Catagory__c == null) {
+            exp.Catagory__c = 'a00J1000002mwioIAA';
+        }
+    }
+}

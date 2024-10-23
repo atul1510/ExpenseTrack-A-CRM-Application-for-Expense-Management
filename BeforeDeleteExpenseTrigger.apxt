@@ -1,0 +1,7 @@
+trigger BeforeDeleteExpenseTrigger on Expense__c (before delete) {
+    for (Expense__c exp : Trigger.old) {
+        if (exp.Status__c == 'Approved') {
+            exp.addError('Approved expenses cannot be deleted.');
+        }
+    }
+}
